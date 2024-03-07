@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ArabalıOyun.sln"
+    "ArabalıOyun.slndotnet.defaultSolution": "ExampleGame1.sln",
+    "dotnet.defaultSolution": "ExampleGame1.sln"
 }
