@@ -5,9 +5,9 @@ using UnityEngine;
 public class Delivery : MonoBehaviour
 {
     [SerializeField] float destroyDelay = 0.5f;
-    [SerializeField] Color32 hasPackageColor = new Color32 (1, 1, 1, 1);
-    [SerializeField] Color32 noPackageColor = new Color32 (1, 1, 1, 1);
-    bool hasPackage = false;
+    [SerializeField] Color32 hasPassengerColor = new Color32 (1, 1, 1, 1);
+    [SerializeField] Color32 noPassengerColor = new Color32 (1, 1, 1, 1);
+    bool hasPassenger = false;
 
     SpriteRenderer spriteRenderer;
 
@@ -20,19 +20,19 @@ public class Delivery : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-            if (other.tag =="Package" && !hasPackage )
+            if (other.tag =="Passenger" && !hasPassenger )
             {
-                Debug.Log("Package Picked Up");
-                hasPackage = true;
-                spriteRenderer.color = hasPackageColor;
+                Debug.Log("Passenger Picked Up");
+                hasPassenger = true;
+                spriteRenderer.color = hasPassengerColor;
                 Destroy(other.gameObject, destroyDelay);
             }
            
-            if (other.tag == "Customer" && hasPackage)
+            if (other.tag == "DeliverySpot" && hasPassenger)
             {
-                Debug.Log("Package Delivered");
-                hasPackage = false;
-                spriteRenderer.color = noPackageColor;
+                Debug.Log("Passenger Delivered");
+                hasPassenger = false;
+                spriteRenderer.color = noPassengerColor;
             }
     }
 
