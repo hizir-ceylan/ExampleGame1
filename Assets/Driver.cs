@@ -5,6 +5,8 @@ using UnityEngine;
 public class Driver : MonoBehaviour
 {
 
+    //code to make the car move and steer
+
     [SerializeField]float steerSpeed = 1f;
     [SerializeField] float moveSpeed = 0.01f;
     [SerializeField] float slowSpeed = 5f;
@@ -19,10 +21,14 @@ public class Driver : MonoBehaviour
 
     }
 
+    //when the car hits a onject, it slows down
+
     private void OnCollisionEnter2D(Collision2D other) 
     {
         moveSpeed = slowSpeed;    
     }
+    
+    //when the car hits a boost, it speeds up
 
     private void OnTriggerEnter2D(Collider2D other)
     {
